@@ -1,0 +1,4 @@
+/log
+*.o
+/bin
+*.png
