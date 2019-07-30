@@ -23,6 +23,7 @@ int main()
     s2 += s3 + s1;
     cout << (p + s2 + s3).size()<<endl;
 
+    cout << String(p) + p <<endl;
     cout << s3[11]<<endl;
     return 0;
 }
