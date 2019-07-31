@@ -17,6 +17,9 @@ int main()
     s2 = p;
     cout<<s2<<endl;
 
+    String s4;
+    cin>>s4;
+    cout<<s4<<' '<<s4.size()<<endl;
     const String s3 = s1 + s2 + p;
     cout << s1 + p << s3<<endl;
     cout << p + s2 + s3<<endl;

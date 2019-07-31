@@ -1,8 +1,10 @@
 #include "../include/strCls.hh"
+#include <vector>
 
 using std::cout;
 using std::cin;
 using std::endl;
+using std::vector;
 
 namespace str{
 
@@ -37,6 +39,9 @@ namespace str{
     /* 赋值重载函数，深拷贝 */
     String& String::operator=(const String &str)
     {
+        if(str._pstr == _pstr)
+            return *this;
+        delete []_pstr;
         _pstr = new char[strlen(str._pstr) + 1];
         strcpy(_pstr, str._pstr);
         return *this;
@@ -144,7 +149,13 @@ namespace str{
     /* 输入友元函数 */
     std::istream& operator>>(std::istream &is, String &s)
     {
-        return is>>s._pstr;
+        vector<char> buff;
+        char ch;
+        while((ch = is.get()) != '\n' && ch != EOF)
+            buff.push_back(ch);
+        buff.push_back(0);
+        s = &buff[0];
+        return is;
     }
 
     /* 重载加法函数 */
